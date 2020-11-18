@@ -24,8 +24,7 @@ When container is running
 Requet
 {host}/graphql
 
-`
-    query {
+`query {
       login (userid: "udita@gmail.com", password: "password1") {
         userid
       }
@@ -38,8 +37,7 @@ Requet
         }
       },
       "extensions": {}
-    }
-`
+    }`
 
 
 
