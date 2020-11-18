@@ -16,5 +16,32 @@ This also gives us the opportunity to deploy any cloud platform like Azure, AWS,
 We use feature branching guidelines. New feature development should be developed in branch "feature/*". All methods should be covered by unit tests.
 All the merging to master should be through PR review.
 
+## Sample
+When container is running
+/graphql [graphql endpoint for clients]
+/ui/playground [graphql ui for testing]
+
+Requet
+{host}/graphql
+
+`
+    query {
+      login (userid: "udita@gmail.com", password: "password1") {
+        userid
+      }
+    }
+
+    {
+      "data": {
+        "login": {
+          "userid": "udita@gmail.com"
+        }
+      },
+      "extensions": {}
+    }
+`
+
+
+
 
 
