@@ -1,9 +1,8 @@
-﻿
-using GraphQL;
+﻿using GraphQL;
 
-namespace Easypeasy.Api.Queries
+namespace Easypeasy.Api.Infrastructure.Queries
 {
-    public class GraphQLQueryDTO
+    public class GraphQLQuery
     {
         public string OperationName { get; set; }
         public string NamedQuery { get; set; }

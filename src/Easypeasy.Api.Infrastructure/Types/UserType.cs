@@ -1,7 +1,7 @@
-﻿using Easypeasy.Api.Domain;
+﻿using Easypeasy.Api.Infrastructure.Domain;
 using GraphQL.Types;
 
-namespace Easypeasy.Api.Types
+namespace Easypeasy.Api.Infrastructure.Types
 {
     public class UserType : ObjectGraphType<User>
     {

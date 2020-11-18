@@ -1,4 +1,4 @@
-﻿namespace Easypeasy.Api.Domain
+﻿namespace Easypeasy.Api.Infrastructure.Domain
 {
     public class User
     {

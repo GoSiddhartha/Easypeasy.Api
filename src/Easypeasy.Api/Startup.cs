@@ -1,12 +1,15 @@
-using Easypeasy.Api.Infrastructure;
-using Easypeasy.Api.Infrastructure.Interface;
-using Easypeasy.Api.Queries;
-using GraphiQl;
+using GraphQL.Server;
+using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Easypeasy.Api.Infrastructure.Service.Interface;
+using Easypeasy.Api.Infrastructure.Queries;
+using Easypeasy.Api.Infrastructure.Service;
+using Easypeasy.Api.Infrastructure.Schemas;
+using Easypeasy.Api.Infrastructure.Types;
 
 namespace Easypeasy.Api
 {
@@ -23,8 +26,19 @@ namespace Easypeasy.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<ILogin, Login>();
-            services.AddSingleton<EasypeasyQuery, EasypeasyQuery>();
+            services.AddSingleton<ILoginService, LoginService>();
+            services.AddSingleton<EasypeasyQuery>();
+            services.AddSingleton<UserType>();
+            services.AddSingleton<ISchema, EasypeasySchema>();
+
+
+            services.AddGraphQL(options =>
+            {
+                options.EnableMetrics = true;
+            })
+            .AddErrorInfoProvider(opt => opt.ExposeExceptionStackTrace = true)
+            .AddSystemTextJson()
+            .AddUserContextBuilder(httpContext => new GraphQLUserContext { User = httpContext.User });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,18 +49,11 @@ namespace Easypeasy.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // add http for Schema at default url /graphql
+            app.UseGraphQL<ISchema>();
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseGraphiQl("/graphql");
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            // use graphql-playground at default url /ui/playground
+            app.UseGraphQLPlayground();
         }
     }
 }
