@@ -7,7 +7,14 @@ namespace Easypeasy.Api.Infrastructure.Service
     {
         public User UserLogin(string username, string password)
         {
-            return new User() { userid = username, name = "Udita", role = "Super Admin" };
+            return new User() { 
+                userid = username, 
+                name = "Udita", 
+                role = "Super Admin", 
+                response = new Message { 
+                    status=true, 
+                    message="User was successfully created" 
+                } };
         }
     }
 }

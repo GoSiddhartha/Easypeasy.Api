@@ -10,6 +10,7 @@ using Easypeasy.Api.Infrastructure.Queries;
 using Easypeasy.Api.Infrastructure.Service;
 using Easypeasy.Api.Infrastructure.Schemas;
 using Easypeasy.Api.Infrastructure.Types;
+using Easypeasy.Api.Infrastructure.Mutations;
 
 namespace Easypeasy.Api
 {
@@ -27,7 +28,10 @@ namespace Easypeasy.Api
         {
             services.AddControllers();
             services.AddSingleton<ILoginService, LoginService>();
+            services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<EasypeasyQuery>();
+            services.AddSingleton<EasypeasyMutation>();
+            services.AddSingleton<MessageType>();
             services.AddSingleton<UserType>();
             services.AddSingleton<ISchema, EasypeasySchema>();
 

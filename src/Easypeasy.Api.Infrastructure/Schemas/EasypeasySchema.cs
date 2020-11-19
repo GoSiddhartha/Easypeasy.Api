@@ -1,4 +1,5 @@
-﻿using Easypeasy.Api.Infrastructure.Queries;
+﻿using Easypeasy.Api.Infrastructure.Mutations;
+using Easypeasy.Api.Infrastructure.Queries;
 using GraphQL.Types;
 using GraphQL.Utilities;
 using System;
@@ -11,6 +12,7 @@ namespace Easypeasy.Api.Infrastructure.Schemas
             : base(provider)
         {
             Query = provider.GetRequiredService<EasypeasyQuery>();
+            Mutation = provider.GetRequiredService<EasypeasyMutation>();
         }
     }
 }

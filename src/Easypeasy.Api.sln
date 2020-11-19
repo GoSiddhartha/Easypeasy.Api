@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easypeasy.Api", "Easypeasy.Api\Easypeasy.Api.csproj", "{0F74A188-A05A-4204-95A7-C91DD2AA78EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easypeasy.Api.Infrastructure", "Easypeasy.Api.Infrastructure\Easypeasy.Api.Infrastructure.csproj", "{6C3453F0-C63B-4C54-94D6-C6EC2F3F6C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easypeasy.Api.Infrastructure", "Easypeasy.Api.Infrastructure\Easypeasy.Api.Infrastructure.csproj", "{6C3453F0-C63B-4C54-94D6-C6EC2F3F6C17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
